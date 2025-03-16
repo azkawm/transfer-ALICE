@@ -2,11 +2,11 @@
 pragma solidity ^0.8.13;
 
 import {Script, console} from "forge-std/Script.sol";
-import {ToAlicePool} from "../src/TransferALICE.sol";
+import {MockERC20} from "../src/mocks/MockERC20.sol";
 
-contract ToAlicePoolScript is Script{
+contract MockERC20Script is Script{
 
-    ToAlicePool public toAlicePool;
+    MockERC20 public mockERC20;
     //base mainnet "https://base-mainnet.g.alchemy.com/v2/IpWFQVx6ZTeZyG85llRd7h6qRRNMqErS"
     function setUp() public {
         vm.createSelectFork(vm.rpcUrl("https://base-sepolia.g.alchemy.com/v2/IpWFQVx6ZTeZyG85llRd7h6qRRNMqErS"));
@@ -15,7 +15,7 @@ contract ToAlicePoolScript is Script{
     function run() public {
         uint256 privateKey = vm.envUint("DEPLOYER_WALLET_PRIVATE_KEY");
         vm.startBroadcast(privateKey);
-        toAlicePool = new ToAlicePool(0x623cD3a3EdF080057892aaF8D773Bbb7A5C9b6e9,0x93312e42bf55Ea9B023E988c1D3C326B18a1B57A);
+        mockERC20 = new MockERC20();
         vm.stopBroadcast();
     }
 }

@@ -8,7 +8,8 @@ contract ToAlicePool{
     
     using SafeERC20 for IERC20;
     
-    IERC20 public constant aliceToken = IERC20(0x623cD3a3EdF080057892aaF8D773Bbb7A5C9b6e9);
+    //IERC20 public constant aliceToken = IERC20(0x623cD3a3EdF080057892aaF8D773Bbb7A5C9b6e9);
+    IERC20 public aliceToken;
 
     address walletCustody;
 
@@ -16,9 +17,10 @@ contract ToAlicePool{
 
     error AmountShouldNotBeZero();
 
-    constructor(address wallet){
+    constructor(address wallet, address token){
 
         walletCustody = wallet;
+        aliceToken = IERC20(token);    
 
     }
 
