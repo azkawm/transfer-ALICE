@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "viem": "^2.23.11"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2",
+    "vite": "^5.4.8"
+  }
+}
